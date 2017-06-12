@@ -27,7 +27,7 @@ io.on('connection', function (socket) {
       items.unshift(data[i]);
     }
 
-    socket.broadcast.emit('clientData', items);
+    socket.broadcast.emit('clientData', data);
   });
 
   socket.on('resetItem', function (data) {

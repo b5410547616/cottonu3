@@ -138,7 +138,7 @@
 		}
 
 		$.when(d1).done(function() {
-			// console.log("items", items);
+			console.log("items", items);
 			let data = "";
 			for (var i = 0; i < items.length; i++) {
 				data += '<tr id="'+ (1+i) +'"><th scope="row"><input name="checkboxlist" type="checkbox" value="'+ items[i].Number +'" checked></th>';
