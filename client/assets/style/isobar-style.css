@@ -43,7 +43,8 @@
 .isobar-product-feed .product-detail {
 	width: 65%;
 	vertical-align: top;
-	margin-left: 8px;
+	/*margin-left: 8px;*/
+	margin-left: 10px;
 	position: relative;
 }
 .isobar-product-feed .product-detail p {font-size: 22px;}
@@ -53,6 +54,8 @@
 .isobar-product-feed .product-detail .product-name {
 	height: 40px;
 	overflow: hidden;
+
+	padding-top: 3px;
 }
 
 
