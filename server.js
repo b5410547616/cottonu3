@@ -31,8 +31,9 @@ io.on('connection', function (socket) {
   });
 
   socket.on('resetItem', function (data) {
-    console.log("receiveData", data);
-    socket.broadcast.emit('resetClient', data);
+    console.log("resetItem");
+    items = [];
+    socket.broadcast.emit('resetClient');
   });
 
 });

@@ -26,6 +26,7 @@
     console.log(data);
   });
   socket.on('update', (items) => {
+  	// console.log("update")
   	updateCart(items);
   });
 
@@ -79,8 +80,8 @@
 
   socket.on('resetClient', function() {
   	$('.isobar-product-feed ul').html('');
-  	itemCount = [];
-  	count = 0;
+  	// itemCount = [];
+  	// count = 0;
   });
 
 </script>
