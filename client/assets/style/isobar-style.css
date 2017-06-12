@@ -58,8 +58,9 @@
 
 /*product-price*/
 .isobar-product-feed .product-detail .product-price {
-	position: relative;
-	padding: 5px 0;
+	/*position: relative;
+	padding: 5px 0;*/
+	display: inline-block;
 }
 .isobar-product-feed .product-detail .product-price p {
 	font-size: 16px
@@ -74,9 +75,11 @@
 
 /*product-discount*/
 .isobar-product-feed .product-detail .product-discount {
-	position: absolute;
-	top: 42%;
-    right: 5%;
+	/*position: absolute;*/
+	/*top: 42%;*/
+    /*right: 5%;*/
+    display: inline-block;
+    padding-right: 5%;
 }
 .isobar-product-feed .product-detail .product-discount p {
 	color: #f42e3f;

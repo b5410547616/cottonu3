@@ -46,15 +46,23 @@
 		data += '<div class="product-name">';
 		data += '<p>'+items[i].Name+'</p>';
 		data += '</div>';
-		data += '<div class="product-price">';
-		data += '<p class="normal-price">'+items[i].Price+' ฿</p>';
-		data += '<p class="deal-price">'+items[i].Finalprice+' ฿</p>';
-		data += '</div>';
+
 		data += '<div class="product-discount">';
 		data += '<p class="discount-percent">'+items[i].Discount+'%</p>';
 		data += '<p>off</p>';
 		data += '</div>';
-		data += '<img class="add-product" src="assets/images/buy.png" alt="">';
+		
+		data += '<div class="product-price">';
+		data += '<p class="normal-price">'+items[i].Price+' ฿</p>';
+		data += '<p class="deal-price">'+items[i].Finalprice+' ฿</p>';
+		data += '</div>';
+
+		// data += '<div class="product-discount">';
+		// data += '<p class="discount-percent">'+items[i].Discount+'%</p>';
+		// data += '<p>off</p>';
+		// data += '</div>';
+
+		// data += '<img class="add-product" src="assets/images/buy.png" alt="">';
 		data += '</div>';
 		data += '</a>';
 		data += '</li>';
