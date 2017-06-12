@@ -1,0 +1,131 @@
+@font-face {
+    font-family: 'db_adman_xregular';
+    src: url('../fonts/db_adman_x_v3.2-webfont.eot');
+    src: url('../fonts/db_adman_x_v3.2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/db_adman_x_v3.2-webfont.woff2') format('woff2'),
+         url('../fonts/db_adman_x_v3.2-webfont.woff') format('woff'),
+         url('../fonts/db_adman_x_v3.2-webfont.ttf') format('truetype'),
+         url('../fonts/db_adman_x_v3.2-webfont.svg#db_adman_xregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.isobar-product-feed {
+	width: 100%;
+	background: #eee;
+}
+.isobar-product-feed a,
+.isobar-product-feed p {
+	font-family: 'db_adman_xregular';
+	text-decoration: none;
+	color: #000;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+}
+.isobar-product-feed .detail-block {
+	display: inline-block;
+	width: 100%;
+}
+.isobar-product-feed ul {padding: 0;margin: 0;}
+.isobar-product-feed ul li {
+	padding: 8px;
+	margin: 8px 0;
+	background: #fff;
+}
+
+/*product-pic*/
+.isobar-product-feed .product-pic {width: 120px;}
+.isobar-product-feed .product-pic img {max-width: 100%;}
+
+
+/*product-detail*/
+.isobar-product-feed .product-detail {
+	width: 65%;
+	vertical-align: top;
+	margin-left: 8px;
+	position: relative;
+}
+.isobar-product-feed .product-detail p {font-size: 22px;}
+
+
+/*product-name*/
+.isobar-product-feed .product-detail .product-name {
+	height: 40px;
+	overflow: hidden;
+}
+
+
+/*product-price*/
+.isobar-product-feed .product-detail .product-price {
+	position: relative;
+	padding: 5px 0;
+}
+.isobar-product-feed .product-detail .product-price p {
+	font-size: 16px
+}
+.isobar-product-feed .product-detail .product-price p.normal-price {
+	color: #b2a9a9;
+	text-decoration: line-through;
+}
+.isobar-product-feed .product-detail .product-price p.deal-price {font-size: 22px;}
+
+
+
+/*product-discount*/
+.isobar-product-feed .product-detail .product-discount {
+	position: absolute;
+	top: 42%;
+    right: 5%;
+}
+.isobar-product-feed .product-detail .product-discount p {
+	color: #f42e3f;
+	font-size: 22px;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: .7;
+}
+
+
+/*add-product*/
+.isobar-product-feed .product-detail .add-product {
+	width: 120px;
+    margin: 0 auto;
+    display: block;
+}
+
+
+
+
+/* iPad Portrait */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	.isobar-product-feed .product-pic {width: 20%;}
+	.isobar-product-feed .product-detail {width: 78%;}
+	.isobar-product-feed .product-detail p {font-size: 24px;}
+	.isobar-product-feed .product-detail .add-product {width: 30%;}
+}
+
+/* iPad Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+	.isobar-product-feed .product-pic {width: 100px;}
+	.isobar-product-feed .product-detail {width: 88%;}
+	.isobar-product-feed .product-detail .product-name {min-height: 0;}
+}
+
+
+/* iPhone5 and upper*/
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+	.isobar-product-feed .product-detail {width: 56%;}
+	.isobar-product-feed .product-detail p {font-size: 20px;}
+}

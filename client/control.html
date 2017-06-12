@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Cotton USA: Control</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="assets/js/jquery-1.8.3.min.js"></script>
+
+	<style>
+		.row button {
+			height: 55px;
+			width: 90%;
+			margin-bottom: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Cotton USA: Control</h1>
+	
+		<table class="table table-striped" id="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Product No.</th>
+					<th>Image</th>
+					<th>Name</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- <tr id="1">
+					<th scope="row">1</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><img src="" style="height: 50px" /></td>
+				</tr> -->
+			</tbody>
+		</table>
+
+		<ul style="padding: 0;">
+			<li style="display: inline-block;">
+				<button class="btn btn-danger" style="display: inline-block;" onclick="onReset()">Reset</button>
+			</li>
+			<li style="display: inline-block; float: right;">
+				<button class="btn btn-success" style="align-items: right" onclick="onPublish()">Publish</button>
+			</li>
+		</ul>
+
+	</div>
+
+	<hr>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2"><button id="btn1" class="btn btn-primary" onclick="showSet(1)">Set 1</button></div>
+			<div class="col-sm-2"><button id="btn2" class="btn btn-primary" onclick="showSet(2)">Set 2</button></div>
+			<div class="col-sm-2"><button id="btn3" class="btn btn-primary" onclick="showSet(3)">Set 3</button></div>
+			<!-- <div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(4)">Set 4</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(5)">Set 5</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(6)">Set 6</button></div> -->
+		</div>
+
+		<!-- <div class="row">
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(7)">Set 7</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(8)">Set 8</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(9)">Set 9</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(10)">Set 10</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(11)">Set 11</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(12)">Set 12</button></div>
+		</div> -->
+	</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	var socket = io();
+	var items = [];
+
+	socket.on('news', function (data) {
+		console.log(data);
+	});
+
+	function getProduct(prdNo) {
+		return $.get("http://m.11street.co.th/api/product/getProductDetailFull.do?prdNo="+prdNo, function( data ) {
+			items.push({
+				Number: data.enties.productDetail.productNumber,
+				Name: data.enties.productDetail.productName,
+				Price: data.enties.productDetail.productRealPrice,
+				Finalprice: data.enties.productDetail.productFinalPrice,
+				Discount: data.enties.productDetail.productDiscount,
+				img: data.enties.productDetail.imageUrlList[0]
+			})
+		});
+	}
+
+	function showSet(no) {
+		items = [];
+		$('#btn'+no).attr('disabled', true);
+		var d1 = $.Deferred();
+		if(no === 1) {
+			getProduct('5076673').done(() => {
+				getProduct('5076674').done(() => {
+					getProduct('5076675').done(() => {
+						getProduct('5076676').done(() => {
+							getProduct('5076677').done(() => {
+								d1.resolve();
+							})
+						})
+					})
+				})
+			});	
+		} else if (no === 2) {
+			getProduct('5076687').done(() => {
+				getProduct('5076688').done(() => {
+					getProduct('5076681').done(() => {
+						getProduct('5076682').done(() => {
+							getProduct('5076683').done(() => {
+								d1.resolve();
+							})
+						})
+					})
+				})
+			});	
+		} else if (no === 3) {
+			getProduct('5076696').done(() => {
+				getProduct('5076697').done(() => {
+					getProduct('5076698').done(() => {
+						getProduct('5076699').done(() => {
+							getProduct('5076700').done(() => {
+								d1.resolve();
+							})
+						})
+					})
+				})
+			});	
+		}
+
+		$.when(d1).done(function() {
+			// console.log("items", items);
+			let data = "";
+			for (var i = 0; i < items.length; i++) {
+				data += '<tr id="'+ (1+i) +'"><th scope="row"><input name="checkboxlist" type="checkbox" value="'+ items[i].Number +'" checked></th>';
+				data += '<td>'+ items[i].Number +'</td>';
+				data += '<td><img src="'+ items[i].img +'" style="height: 50px" /></td>';
+				data += '<td>'+ items[i].Name +'</td>';
+				data += '<td>'+ items[i].Price +'</td></tr>';
+			}
+			$('#table tbody').html(data);
+			$('#btn'+no).attr('disabled', false);
+		});
+	}
+
+	function onPublish() {
+		// console.log("items", items);
+		var final = []; 
+		var checkValues = $('input[name=checkboxlist]:checked').map(function() {
+            var num = $(this).val();
+            items.map(function(prod) {
+            	if(prod.Number.toString() === num) {
+            		final.push(prod);
+            	}
+            });
+        });
+        console.log("final", final);
+        socket.emit('receiveData', final);
+	}
+
+	function onReset() {
+		socket.emit('resetItem');
+	}
+
+</script>
+</body>
+</html>
+
+<!-- $.get("http://m.11street.co.th/api/product/getProductDetailFull.do?prdNo=3944640", function( data ) {
+				items.push({
+					Number: data.enties.productDetail.productNumber,
+					Name: data.enties.productDetail.productName,
+					Price: data.enties.productDetail.productRealPrice,
+					Finalprice: data.enties.productDetail.productFinalPrice,
+					Discount: data.enties.productDetail.productDiscount,
+					img: data.enties.productDetail.imageUrlList[0]
+				});
+			}).done(() => {
+
+				$.get("http://m.11street.co.th/api/product/getProductDetailFull.do?prdNo=4015938", function( data ) {
+					items.push({
+						Number: data.enties.productDetail.productNumber,
+						Name: data.enties.productDetail.productName,
+						Price: data.enties.productDetail.productRealPrice,
+						Finalprice: data.enties.productDetail.productFinalPrice,
+						Discount: data.enties.productDetail.productDiscount,
+						img: data.enties.productDetail.imageUrlList[0]
+					});
+				}).done(() => {
+					$.get("http://m.11street.co.th/api/product/getProductDetailFull.do?prdNo=3944634", function( data ) {
+						items.push({
+							Number: data.enties.productDetail.productNumber,
+							Name: data.enties.productDetail.productName,
+							Price: data.enties.productDetail.productRealPrice,
+							Finalprice: data.enties.productDetail.productFinalPrice,
+							Discount: data.enties.productDetail.productDiscount,
+							img: data.enties.productDetail.imageUrlList[0]
+						});
+						d1.resolve();
+					})
+				})
+			}); -->

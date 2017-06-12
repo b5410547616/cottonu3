@@ -1,0 +1,17 @@
+{
+  "name": "cottonusa",
+  "version": "1.0.0",
+  "description": "11Street Live Stream",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nuttapon Phannurat",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "helmet": "^3.6.1",
+    "path": "^0.12.7",
+    "socket.io": "^2.0.2"
+  }
+}
