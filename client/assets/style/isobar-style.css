@@ -19,7 +19,7 @@
 	font-family: 'Helvetica Neue', Helvetica, Tahoma, sans-serif;
 	text-decoration: none;
 	color: #000;
-	line-height: 1;
+	line-height: 1.2;
 	margin: 0;
 	padding: 0;
 	display: block;
@@ -42,7 +42,7 @@
 
 /*product-detail*/
 .isobar-product-feed .product-detail {
-	width: 63%;
+	width: 62%;
 	vertical-align: top;
 	/*margin-left: 8px;*/
 	margin-left: 10px;
@@ -53,10 +53,23 @@
 
 /*product-name*/
 .isobar-product-feed .product-detail .product-name {
-	height: 45px;
+	/*height: 45px;*/
 	overflow: hidden;
-	margin-bottom: 5px;
-	padding-top: 3px;
+	height: 45px;
+}
+.isobar-product-feed .product-detail .product-name p {
+	display: block; 
+	display: -webkit-box;
+	max-width: 400px;
+	height: 100px;
+	padding: 3px;
+	margin: 0 auto;
+	font-size: 18px;
+	line-height: 1.2;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 
@@ -85,6 +98,7 @@
     /*right: 5%;*/
     display: inline-block;
     padding-right: 5%;
+    margin-top: 15px;
 }
 .isobar-product-feed .product-detail .product-discount p {
 	color: #f42e3f;
@@ -117,7 +131,7 @@
   and (-webkit-min-device-pixel-ratio: 2) {
 	.isobar-product-feed .product-pic {width: 20%;}
 	.isobar-product-feed .product-detail {width: 78%;}
-	.isobar-product-feed .product-detail p {font-size: 24px;}
+	.isobar-product-feed .product-detail p {font-size: 18px;}
 	.isobar-product-feed .product-detail .add-product {width: 30%;}
 }
 
@@ -128,7 +142,7 @@
   and (orientation: landscape) 
   and (-webkit-min-device-pixel-ratio: 2) {
 	.isobar-product-feed .product-pic {width: 100px;}
-	.isobar-product-feed .product-detail {width: 88%;}
+	.isobar-product-feed .product-detail {width: 87%;}
 	.isobar-product-feed .product-detail .product-name {min-height: 0;}
 }
 
@@ -137,13 +151,36 @@
 @media only screen 
   and (min-device-width: 320px) 
   and (max-device-width: 480px)
+  and (orientation: portrait) 
   and (-webkit-min-device-pixel-ratio: 2) {
 	.isobar-product-feed .product-detail {width: 56%;}
-	.isobar-product-feed .product-detail p {font-size: 18px;}
-	.isobar-product-feed .product-detail .product-name {height: 38px;}
+	.isobar-product-feed .product-detail p {font-size: 16px;}
+	/*.isobar-product-feed .product-detail .product-name { height: 38px;}*/
 }
 
 /* Samsung J2 */
-@media screen and (max-width: 318px) {
+@media screen and (max-width: 367px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
 	.isobar-product-feed .product-detail {width: 50%;}
+	.isobar-product-feed .product-detail .product-name {
+		margin-bottom: 18px;
+	}
+	/*.isobar-product-feed .product-detail p {
+	    font-size: 14px;
+	}*/
+
+	/*.isobar-product-feed .product-detail .product-name {
+		max-height: 27px !important;
+		text-overflow: ellipsis !important;
+	}*/
+
 }
+
+
+/*@media screen  and (min-device-width: 368px) and (max-width: 459px) {
+	.isobar-product-feed .product-detail .product-name {
+		max-height: 35px;
+		text-overflow: ellipsis;
+	}
+}*/
+
