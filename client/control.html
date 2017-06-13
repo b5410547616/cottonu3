@@ -168,7 +168,8 @@
 	}
 
 	function onReset() {
-		socket.emit('resetItem');
+		var r = confirm("Are you sure you want to reset all items?")
+		if(r) socket.emit('resetItem');
 	}
 
 </script>
