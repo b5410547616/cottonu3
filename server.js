@@ -19,7 +19,10 @@ var count = 0;
 
 io.on('connection', function (socket) {
   socket.emit('news', { status: 'connected' });
-  socket.emit('update', { items, count });
+
+  socket.on('requestUpdate', function() {
+    socket.emit('update', { items, count });
+  });
 
   socket.on('receiveData', function (data) {
   	console.log("receiveData", data);

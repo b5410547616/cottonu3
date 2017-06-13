@@ -25,6 +25,9 @@
   socket.on('news', function (data) {
     console.log(data);
   });
+
+  socket.emit('requestUpdate');
+
   socket.on('update', ({ items, count }) => {
   	console.log("update")
   	updateCart(items, count);
