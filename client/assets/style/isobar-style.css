@@ -161,7 +161,7 @@
 /* Samsung J2 */
 @media screen and (max-width: 367px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2)
   and (orientation: portrait) {
-	.isobar-product-feed .product-detail {width: 50%;}
+	.isobar-product-feed .product-detail {width: 54%;}
 	.isobar-product-feed .product-detail .product-name {
 		margin-bottom: 18px;
 	}
