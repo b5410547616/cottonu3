@@ -25,24 +25,17 @@
   socket.on('news', function (data) {
     console.log(data);
   });
-  socket.on('update', (items) => {
-  	// console.log("update")
-  	updateCart(items);
+  socket.on('update', ({ items, count }) => {
+  	console.log("update")
+  	updateCart(items, count);
+
   });
 
-  function updateCart(items) {
+  function updateCart(items, count) {
   	let data = "";
-
-  	$('li').css('opacity', '0.5');
-
-    // itemCount.push(items.length);
-    // count++;
-    // items.map((item) => {
     for (var i = items.length - 1 ; i >= 0; i--) {
-    	// data = '<a href="http://www.11street.co.th/productdetail/'+items[i].Number+'" target="_blank">';
     	data = '<li>';
 		data += '<a href="http://www.11street.co.th/productdetail/'+items[i].Number+'" target="_blank">';
-// data += '<div>';
 		data += '<div class="detail-block product-pic">';
 		data += '<img src="'+items[i].img+'" alt="">';
 		data += '</div>';
@@ -55,47 +48,30 @@
 		data += '<p class="discount-percent">'+items[i].Discount+'%</p>';
 		data += '<p>off</p>';
 		data += '</div>';
-		
 		data += '<div class="product-price">';
 		data += '<p class="normal-price">'+items[i].Price+' ฿</p>';
 		data += '<p class="deal-price">'+items[i].Finalprice+' ฿</p>';
 		data += '</div>';
-
-		// data += '<div class="product-discount">';
-		// data += '<p class="discount-percent">'+items[i].Discount+'%</p>';
-		// data += '<p>off</p>';
-		// data += '</div>';
-
-		// data += '<img class="add-product" src="assets/images/buy.png" alt="">';
 		data += '</div>';
-// data += '</div>'
 		data += '</a>';
 		data += '</li>';
-		// data += '</a>';
 		$('.isobar-product-feed ul').prepend(data);
 	}
-    // });	
-
-    // if(count > 3) {
-    	// for (var i = 0; i < itemCount[0]; i++) {
-    	// 	$('.isobar-product-feed ul li:nth-last-child(1)').remove();
-    	// }
-    	// itemCount.shift();
-    // }
-    // console.log(itemCount);
+	$('li').css('opacity', '0.5');
+	if(count != 0) {
+		for (var i = 1; i <= count; i++) {
+			$('li:nth-child('+i+')').css('opacity', '1');
+		}
+	}
   }
 
-  // var itemCount = [];
-  // var count = 0;
-  socket.on('clientData', function (items) {
-    console.log(items);
-    updateCart(items);
+  socket.on('clientData', function ({data, count}) {
+    console.log(data);
+    updateCart(data, count);
   });
 
   socket.on('resetClient', function() {
   	$('.isobar-product-feed ul').html('');
-  	// itemCount = [];
-  	// count = 0;
   });
 
 </script>

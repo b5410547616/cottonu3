@@ -48,14 +48,14 @@
 	margin-left: 10px;
 	position: relative;
 }
-.isobar-product-feed .product-detail p {font-size: 22px;}
+.isobar-product-feed .product-detail p {font-size: 18px;}
 
 
 /*product-name*/
 .isobar-product-feed .product-detail .product-name {
-	height: 40px;
+	height: 45px;
 	overflow: hidden;
-
+	margin-bottom: 5px;
 	padding-top: 3px;
 }
 
@@ -65,6 +65,7 @@
 	/*position: relative;
 	padding: 5px 0;*/
 	display: inline-block;
+	margin-left: 10px;
 }
 .isobar-product-feed .product-detail .product-price p {
 	font-size: 16px
@@ -73,7 +74,7 @@
 	color: #b2a9a9;
 	text-decoration: line-through;
 }
-.isobar-product-feed .product-detail .product-price p.deal-price {font-size: 22px;}
+.isobar-product-feed .product-detail .product-price p.deal-price {font-size: 20px;}
 
 
 
@@ -87,10 +88,14 @@
 }
 .isobar-product-feed .product-detail .product-discount p {
 	color: #f42e3f;
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: bold;
 	text-transform: uppercase;
-	line-height: .7;
+	line-height: 1;
+}
+.isobar-product-feed .product-detail .product-discount p:last-child {
+	font-size: 14px;
+	font-weight: 100;
 }
 
 
@@ -134,5 +139,11 @@
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
 	.isobar-product-feed .product-detail {width: 56%;}
-	.isobar-product-feed .product-detail p {font-size: 20px;}
+	.isobar-product-feed .product-detail p {font-size: 18px;}
+	.isobar-product-feed .product-detail .product-name {height: 38px;}
+}
+
+/* Samsung J2 */
+@media screen and (max-width: 318px) {
+	.isobar-product-feed .product-detail {width: 50%;}
 }

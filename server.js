@@ -15,24 +15,27 @@ const app = express();
 app.use(helmet());
 
 var items = [];
+var count = 0;
 
 io.on('connection', function (socket) {
   socket.emit('news', { status: 'connected' });
-  socket.emit('update', items);
+  socket.emit('update', { items, count });
 
   socket.on('receiveData', function (data) {
   	console.log("receiveData", data);
 
+    count = data.length;
     for (var i = data.length - 1 ; i >= 0 ; i--) {
       items.unshift(data[i]);
     }
 
-    socket.broadcast.emit('clientData', data);
+    socket.broadcast.emit('clientData', {data, count});
   });
 
   socket.on('resetItem', function (data) {
     console.log("resetItem");
     items = [];
+    count = 0;
     socket.broadcast.emit('resetClient');
   });
 
