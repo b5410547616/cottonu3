@@ -121,6 +121,15 @@ img {margin-bottom: -5px;}
     display: block;
 }
 
+/*Licensee Image*/
+.licensee-img {
+	max-width: 100%;
+	display: none;
+}
+.licensee-img.active {
+	max-width: 100%;
+	display: block;
+}
 
 
 

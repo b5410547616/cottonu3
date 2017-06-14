@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="assets/style/isobar-style.css">
 </head>
 <body style="background-color: #eee">
+	<img src="/assets/images/licensee1.jpg" class="licensee-img" id="licensee1">
+	<img src="/assets/images/licensee2.jpg" class="licensee-img" id="licensee2">
 
 	<div class="isobar-product-feed">
 		<ul>
@@ -32,6 +34,14 @@
   	console.log("update")
   	updateCart(items, count);
 
+  });
+
+  socket.on('showBannerClient', (num) => {
+  	if(num === 1){
+  		$('#licensee1').toggleClass('active');
+  	} else if(num === 2) {
+  		$('#licensee2').toggleClass('active');
+  	}
   });
 
   function numberWithCommas(x) {

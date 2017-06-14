@@ -57,10 +57,10 @@
 		<hr>
 			<ul style="padding: 0;">
 				<li style="display: inline-block; padding-right: 20px">
-					<button class="btn btn-warning" style="display: inline-block;">Banner All Logo (Before Live)</button>
+					<button class="btn btn-warning" style="display: inline-block;" id="banner1">Banner All Logo (Before Live)</button>
 				</li>
 				<li style="display: inline-block;">
-					<button class="btn btn-warning" style="align-items: right">Banner Kids brand</button>
+					<button class="btn btn-warning" style="align-items: right" id="banner2">Banner Kids brand</button>
 				</li>
 			</ul>
 		<hr>
@@ -107,6 +107,13 @@
 
 	socket.on('news', function (data) {
 		console.log(data);
+	});
+
+	$('#banner1').on("click", function() {
+		socket.emit("showBanner", 1);
+	});
+	$('#banner2').on("click", function() {
+		socket.emit("showBanner", 2);
 	});
 
 	function getProduct(prdNo) {
@@ -211,13 +218,13 @@
 		} else if (no === 14) {
 			title = "Wrangler";
 			d1.resolve();
-			
+
 		} else if (no === 15) {
 			title = "Santas";
 			getProduct('5102604').done(() => {
 				d1.resolve();
 			});
-			
+
 		} else if (no === 16) {
 			title = "Frolina";
 			getProduct('5086664').done(() => {
@@ -225,11 +232,11 @@
 					d1.resolve();
 				})
 			});	
-			
+
 		} else if (no === 17) {
 			title = "Rii";
 			d1.resolve();
-			
+
 		} else if (no === 18) {
 			title = "Quiescent";
 			getProduct('5076267').done(() => {
@@ -239,7 +246,7 @@
 					})
 				})
 			});
-			
+
 		} else if (no === 19) {
 			title = "Guy Laroche";
 			getProduct('5086057').done(() => {
@@ -247,7 +254,7 @@
 					d1.resolve();
 				})
 			});	
-			
+
 		} else if (no === 20) {
 			title = "Jockey";
 			d1.resolve();

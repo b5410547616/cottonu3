@@ -42,6 +42,10 @@ io.on('connection', function (socket) {
     socket.broadcast.emit('resetClient');
   });
 
+  socket.on('showBanner', function (num) {
+      socket.broadcast.emit('showBannerClient', num)
+  })
+
 });
 
 
