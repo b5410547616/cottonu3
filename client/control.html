@@ -82,12 +82,12 @@
 			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(9)">9) John Henry</button> --></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(10)">10) Surftex</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(11)">11) Portland</button></div>
-			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(12)">12) Lee</button> --></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(12)">12) Lee</button></div>
 		</div>
 
 		<div class="row">
-			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(13)">13) Lee Cooper</button> --></div>
-			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(14)">14) Wrangler</button> --></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(13)">13) Lee Cooper</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(14)">14) Wrangler</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(15)">15) Santas</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(16)">16) Frolina</button></div>
 			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(17)">17) Rii</button> --></div>
@@ -96,7 +96,7 @@
 
 		<div class="row">
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(19)">19) Guy Laroche</button></div>
-			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(20)">20) Jockey</button> --></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(20)">20) Jockey</button></div>
 		</div>
 	</div>
 
@@ -209,15 +209,31 @@
 
 		} else if (no === 12) {
 			title = "Lee";
-			d1.resolve();
+			getProduct('5103607').done(() => {
+				getProduct('5103084').done(() => {
+					getProduct('5103013').done(() => {
+						d1.resolve();
+					})
+				})
+			});
 
 		} else if (no === 13) {
 			title = "Lee Cooper";
-			d1.resolve();
+			getProduct('5104157').done(() => {
+				getProduct('5104132').done(() => {
+					d1.resolve();
+				})
+			});	
 
 		} else if (no === 14) {
 			title = "Wrangler";
-			d1.resolve();
+			getProduct('5103947').done(() => {
+				getProduct('5103829').done(() => {
+					getProduct('5103064').done(() => {
+						d1.resolve();
+					})
+				})
+			});
 
 		} else if (no === 15) {
 			title = "Santas";
@@ -257,7 +273,11 @@
 
 		} else if (no === 20) {
 			title = "Jockey";
-			d1.resolve();
+			getProduct('5104205').done(() => {
+				getProduct('5104192').done(() => {
+					d1.resolve();
+				})
+			});	
 		}
 
 		
