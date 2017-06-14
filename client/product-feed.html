@@ -50,14 +50,23 @@
 		data += '<div class="product-name">';
 		data += '<p>'+items[i].Name+'</p>';
 		data += '</div>';
-		data += '<div class="product-discount">';
-		data += '<p class="discount-percent">'+items[i].Discount+'%</p>';
-		data += '<p>off</p>';
-		data += '</div>';
+
+		if(items[i].Discount != 0) {
+			data += '<div class="product-discount">';
+			data += '<p class="discount-percent">'+items[i].Discount+'%</p>';
+			data += '<p>off</p>';
+			data += '</div>';
+		}
+
 		data += '<div class="product-price">';
-		data += '<p class="normal-price">'+numberWithCommas(items[i].Price)+' ฿</p>';
+		if(items[i].Discount != 0) {
+			data += '<p class="normal-price">'+numberWithCommas(items[i].Price)+' ฿</p>';
+		} else {
+			data += '<br>';
+		}
 		data += '<p class="deal-price">'+numberWithCommas(items[i].Finalprice)+' ฿</p>';
 		data += '</div>';
+
 		data += '</div>';
 		data += '</a>';
 		data += '</li>';
