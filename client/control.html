@@ -18,6 +18,8 @@
 <body>
 	<div class="container">
 		<h1>Cotton USA: Control</h1>
+
+		<h3 id="title"></h3>
 	
 		<table class="table table-striped" id="table">
 			<thead>
@@ -51,26 +53,51 @@
 
 	</div>
 
-	<hr>
+	<div class="container">
+		<hr>
+			<ul style="padding: 0;">
+				<li style="display: inline-block; padding-right: 20px">
+					<button class="btn btn-warning" style="display: inline-block;">Banner All Logo (Before Live)</button>
+				</li>
+				<li style="display: inline-block;">
+					<button class="btn btn-warning" style="align-items: right">Banner Kids brand</button>
+				</li>
+			</ul>
+		<hr>
+	</div>
 
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-2"><button id="btn1" class="btn btn-primary" onclick="showSet(1)">Set 1</button></div>
-			<div class="col-sm-2"><button id="btn2" class="btn btn-primary" onclick="showSet(2)">Set 2</button></div>
-			<div class="col-sm-2"><button id="btn3" class="btn btn-primary" onclick="showSet(3)">Set 3</button></div>
-			<!-- <div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(4)">Set 4</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(5)">Set 5</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(6)">Set 6</button></div> -->
+			<div class="col-sm-2"><button id="btn1" class="btn btn-primary" onclick="showSet(1)">1) Enfant</button></div>
+			<div class="col-sm-2"><button id="btn2" class="btn btn-primary" onclick="showSet(2)">2) Little Wacoal</button></div>
+			<div class="col-sm-2"><!-- <button id="btn3" class="btn btn-primary" onclick="showSet(3)">3) Cadeau</button> --></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(4)">4) Elle</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(5)">5) Blue Corner</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(6)">6) Manchester</button></div>
 		</div>
 
-		<!-- <div class="row">
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(7)">Set 7</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(8)">Set 8</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(9)">Set 9</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(10)">Set 10</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(11)">Set 11</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(12)">Set 12</button></div>
-		</div> -->
+		<div class="row">
+			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(7)">7) S'fare</button> --></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(8)">8) Khaki Bros</button></div>
+			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(9)">9) John Henry</button> --></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(10)">10) Surftex</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(11)">11) Portland</button></div>
+			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(12)">12) Lee</button> --></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(13)">13) Lee Cooper</button> --></div>
+			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(14)">14) Wrangler</button> --></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(15)">15) Santas</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(16)">16) Frolina</button></div>
+			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(17)">17) Rii</button> --></div>
+			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(18)">18) Quiescent</button> --></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(19)">19) Guy Laroche</button></div>
+			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(20)">20) Jockey</button> --></div>
+		</div>
 	</div>
 
 <script src="/socket.io/socket.io.js"></script>
@@ -99,44 +126,134 @@
 		items = [];
 		$('#btn'+no).attr('disabled', true);
 		var d1 = $.Deferred();
+		var title = "";
+
 		if(no === 1) {
-			getProduct('5076673').done(() => {
-				getProduct('5076674').done(() => {
-					getProduct('5076675').done(() => {
-						getProduct('5076676').done(() => {
-							getProduct('5076677').done(() => {
-								d1.resolve();
-							})
-						})
-					})
+			title = "Enfant";
+			getProduct('5085597').done(() => {
+				getProduct('5085604').done(() => {
+					d1.resolve();
 				})
 			});	
+
 		} else if (no === 2) {
-			getProduct('5076687').done(() => {
-				getProduct('5076688').done(() => {
-					getProduct('5076681').done(() => {
-						getProduct('5076682').done(() => {
-							getProduct('5076683').done(() => {
-								d1.resolve();
-							})
-						})
-					})
-				})
+			title = "Little Wacoal";
+			getProduct('5086180').done(() => {
+				d1.resolve();
 			});	
+
 		} else if (no === 3) {
-			getProduct('5076696').done(() => {
-				getProduct('5076697').done(() => {
-					getProduct('5076698').done(() => {
-						getProduct('5076699').done(() => {
-							getProduct('5076700').done(() => {
-								d1.resolve();
-							})
-						})
-					})
+			title = "Cadeau";
+			d1.resolve();
+
+		} else if (no === 4) {
+			title = "Elle";
+			getProduct('5075521').done(() => {
+				getProduct('5075529').done(() => {
+					d1.resolve();
+				})
+			});
+
+		} else if (no === 5) {
+			title = "Blue Corner";
+			getProduct('5086032').done(() => {
+				d1.resolve();
+			});
+
+		} else if (no === 6) {
+			title = "Manchester";
+			getProduct('5102395').done(() => {
+				getProduct('5102566').done(() => {
+					d1.resolve();
 				})
 			});	
+
+		} else if (no === 7) {
+			title = "S'fare";
+			d1.resolve();
+
+		} else if (no === 8) {
+			title = "Khaki Bros";
+			getProduct('5086928').done(() => {
+				getProduct('5086940').done(() => {
+					getProduct('5086938').done(() => {
+						d1.resolve();
+					})
+				})
+			});
+
+		} else if (no === 9) {
+			title = "John Henry";
+			d1.resolve();
+
+		} else if (no === 10) {
+			title = "Surftex";
+			getProduct('5102520').done(() => {
+				getProduct('5102599').done(() => {
+					d1.resolve();
+				})
+			});	
+
+		} else if (no === 11) {
+			title = "Portland";
+			getProduct('5086147').done(() => {
+				d1.resolve();
+			});
+
+		} else if (no === 12) {
+			title = "Lee";
+			d1.resolve();
+
+		} else if (no === 13) {
+			title = "Lee Cooper";
+			d1.resolve();
+
+		} else if (no === 14) {
+			title = "Wrangler";
+			d1.resolve();
+			
+		} else if (no === 15) {
+			title = "Santas";
+			getProduct('5102604').done(() => {
+				d1.resolve();
+			});
+			
+		} else if (no === 16) {
+			title = "Frolina";
+			getProduct('5086664').done(() => {
+				getProduct('5086652').done(() => {
+					d1.resolve();
+				})
+			});	
+			
+		} else if (no === 17) {
+			title = "Rii";
+			d1.resolve();
+			
+		} else if (no === 18) {
+			title = "Quiescent";
+			// getProduct('5076267').done(() => {
+			// 	getProduct('5076224').done(() => {
+			// 		getProduct('').done(() => {
+						d1.resolve();
+			// 		})
+			// 	})
+			// });
+			
+		} else if (no === 19) {
+			title = "Guy Laroche";
+			getProduct('5086057').done(() => {
+				getProduct('5077975').done(() => {
+					d1.resolve();
+				})
+			});	
+			
+		} else if (no === 20) {
+			title = "Jockey";
+			d1.resolve();
 		}
 
+		
 		$.when(d1).done(function() {
 			console.log("items", items);
 			let data = "";
@@ -149,6 +266,7 @@
 			}
 			$('#table tbody').html(data);
 			$('#btn'+no).attr('disabled', false);
+			$('#title').html(title);
 		});
 	}
 
