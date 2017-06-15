@@ -39,45 +39,62 @@
 
   socket.on('updateBanner', function (banner1, banner2) {
   	// console.log("update banner")
-  	if(banner1) showBanner(1);
-  	else if(banner2) showBanner(2);
+  	showBanner(banner1, banner2);
+  	// if(banner1) showBanner(1);
+  	// else if(banner2) showBanner(2);
   });
 
   // var bodyColor = true;
-  var banner1 = false;
-  var banner2 = false;
-  function showBanner(num) {
-  	if(num === 1){
-  		// $('#licensee1').toggleClass('active');
-  		banner1 = !banner1;
-  		if(banner1) {
-  			$('#licensee1').addClass('active');
-  			$('body').css('background-color', 'white');
-  		} else {
-  			$('#licensee1').removeClass('active');
-  			$('body').css('background-color', '#eee');
-  		}
-  		// $('#licensee1').toggleClass(function() {
-  		// 	if(bodyColor) {
-  		// 		$('body').css('background-color', 'white');
-  		// 		bodyColor = false;
-  		// 	} else {
-  		// 		$('body').css('background-color', '#eee');
-  		// 		bodyColor = true;
-  		// 	}
-  		// 	return 'active';
-  		// });
+  // var banner1 = false;
+  // var banner2 = false;
+  function showBanner(banner1, banner2) {
+	if(banner1) {
+		$('#licensee1').attr('class', 'licensee-img active');
+		$('body').css('background-color', 'white');
+	} else {
+		$('#licensee1').attr('class', 'licensee-img');
+		$('body').css('background-color', '#eee');
+	} 
 
-  	} else if(num === 2) {
-  		// $('#licensee2').toggleClass('active');
-  		banner2 = !banner2;
-  		if(banner2) {
-  			$('#licensee2').addClass('active');
-  			$('body').css('background-color', 'white');
-  		} else {
-  			$('#licensee2').removeClass('active');
-  			$('body').css('background-color', '#eee');
-  		}
+	if(banner2) {
+		$('#licensee2').attr('class', 'licensee-img active');
+		$('body').css('background-color', 'white');
+	} else {
+		$('#licensee2').attr('class', 'licensee-img');
+		$('body').css('background-color', '#eee');
+  	}
+
+  	// if(num === 1){
+  	// 	// $('#licensee1').toggleClass('active');
+  	// 	banner1 = !banner1;
+  	// 	if(banner1) {
+  	// 		$('#licensee1').addClass('active');
+  	// 		$('body').css('background-color', 'white');
+  	// 	} else {
+  	// 		$('#licensee1').removeClass('active');
+  	// 		$('body').css('background-color', '#eee');
+  	// 	}
+  	// 	// $('#licensee1').toggleClass(function() {
+  	// 	// 	if(bodyColor) {
+  	// 	// 		$('body').css('background-color', 'white');
+  	// 	// 		bodyColor = false;
+  	// 	// 	} else {
+  	// 	// 		$('body').css('background-color', '#eee');
+  	// 	// 		bodyColor = true;
+  	// 	// 	}
+  	// 	// 	return 'active';
+  	// 	// });
+
+  	// } else if(num === 2) {
+  	// 	// $('#licensee2').toggleClass('active');
+  	// 	banner2 = !banner2;
+  	// 	if(banner2) {
+  	// 		$('#licensee2').addClass('active');
+  	// 		$('body').css('background-color', 'white');
+  	// 	} else {
+  	// 		$('#licensee2').removeClass('active');
+  	// 		$('body').css('background-color', '#eee');
+  	// 	}
   		// $('#licensee2').toggleClass(function() {
   		// 	if(bodyColor) {
   		// 		$('body').css('background-color', 'white');
@@ -88,11 +105,11 @@
   		// 	}
   		// 	return 'active';
   		// });
-  	}
+  	// }
   }
 
-  socket.on('showBannerClient', function (num) {
-  	showBanner(num);
+  socket.on('showBannerClient', function (banner1, banner2) {
+  	showBanner(banner1, banner2);
   });
 
   function numberWithCommas(x) {
