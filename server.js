@@ -55,9 +55,6 @@ io.on('connection', function (socket) {
       socket.broadcast.emit('showBannerClient', banner1, banner2)
   })
 
-  // socket.on('disconnect', function() {
-  //   socket.emit("resetAllItem");
-  // })
 });
 
 server.listen(8888, function(){

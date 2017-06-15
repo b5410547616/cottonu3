@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="assets/style/normalize.css">
 	<link rel="stylesheet" href="assets/style/isobar-style.css">
 </head>
-<body style="background-color: #eee">
+<body style="background-color: #eee; min-height: 500px;">
 	<img src="/assets/images/licensee1.jpg" class="licensee-img" id="licensee1">
 	<img src="/assets/images/licensee2.jpg" class="licensee-img" id="licensee2">
 
@@ -40,72 +40,26 @@
   socket.on('updateBanner', function (banner1, banner2) {
   	// console.log("update banner")
   	showBanner(banner1, banner2);
-  	// if(banner1) showBanner(1);
-  	// else if(banner2) showBanner(2);
   });
 
-  // var bodyColor = true;
-  // var banner1 = false;
-  // var banner2 = false;
   function showBanner(banner1, banner2) {
 	if(banner1) {
 		$('#licensee1').attr('class', 'licensee-img active');
-		$('body').css('background-color', 'white');
 	} else {
 		$('#licensee1').attr('class', 'licensee-img');
-		$('body').css('background-color', '#eee');
 	} 
 
 	if(banner2) {
 		$('#licensee2').attr('class', 'licensee-img active');
-		$('body').css('background-color', 'white');
 	} else {
 		$('#licensee2').attr('class', 'licensee-img');
-		$('body').css('background-color', '#eee');
   	}
 
-  	// if(num === 1){
-  	// 	// $('#licensee1').toggleClass('active');
-  	// 	banner1 = !banner1;
-  	// 	if(banner1) {
-  	// 		$('#licensee1').addClass('active');
-  	// 		$('body').css('background-color', 'white');
-  	// 	} else {
-  	// 		$('#licensee1').removeClass('active');
-  	// 		$('body').css('background-color', '#eee');
-  	// 	}
-  	// 	// $('#licensee1').toggleClass(function() {
-  	// 	// 	if(bodyColor) {
-  	// 	// 		$('body').css('background-color', 'white');
-  	// 	// 		bodyColor = false;
-  	// 	// 	} else {
-  	// 	// 		$('body').css('background-color', '#eee');
-  	// 	// 		bodyColor = true;
-  	// 	// 	}
-  	// 	// 	return 'active';
-  	// 	// });
-
-  	// } else if(num === 2) {
-  	// 	// $('#licensee2').toggleClass('active');
-  	// 	banner2 = !banner2;
-  	// 	if(banner2) {
-  	// 		$('#licensee2').addClass('active');
-  	// 		$('body').css('background-color', 'white');
-  	// 	} else {
-  	// 		$('#licensee2').removeClass('active');
-  	// 		$('body').css('background-color', '#eee');
-  	// 	}
-  		// $('#licensee2').toggleClass(function() {
-  		// 	if(bodyColor) {
-  		// 		$('body').css('background-color', 'white');
-  		// 		bodyColor = false;
-  		// 	} else {
-  		// 		$('body').css('background-color', '#eee');
-  		// 		bodyColor = true;
-  		// 	}
-  		// 	return 'active';
-  		// });
-  	// }
+  	if(banner1 || banner2) {
+  		$('body').css('background-color', 'white');
+  	} else {
+  		$('body').css('background-color', '#eee');
+  	}
   }
 
   socket.on('showBannerClient', function (banner1, banner2) {
@@ -170,10 +124,6 @@
   socket.on('disconnect', function() {
     top.location.reload();
   })
-  // socket.on('resetAllItem', function() {
-  // 	top.location.reload();
-
-  // });
 
 </script>
 </body>
