@@ -30,12 +30,12 @@
 
   socket.emit('requestUpdate');
 
-  socket.on('update', ({ items, count }) => {
+  socket.on('update', function (items, count) {
   	// console.log("update")
   	updateCart(items, count);
   });
 
-  socket.on('updateBanner', ({banner1, banner2}) => {
+  socket.on('updateBanner', function (banner1, banner2) {
   	// console.log("update banner")
   	if(banner1) showBanner(1);
   	else if(banner2) showBanner(2);
@@ -71,7 +71,7 @@
   	}
   }
 
-  socket.on('showBannerClient', (num) => {
+  socket.on('showBannerClient', function (num) {
   	showBanner(num);
   });
 
@@ -121,7 +121,7 @@
 	}
   }
 
-  socket.on('clientData', function ({data, count}) {
+  socket.on('clientData', function (data, count) {
     // console.log(data);
     updateCart(data, count);
   });
