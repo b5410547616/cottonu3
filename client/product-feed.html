@@ -130,6 +130,11 @@
   	$('.isobar-product-feed ul').html('');
   });
 
+  socket.on('resetAllItem', function() {
+  	top.location.reload();
+
+  });
+
 </script>
 </body>
 </html>

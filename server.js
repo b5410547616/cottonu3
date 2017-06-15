@@ -22,11 +22,11 @@ var banner2 = false;
 io.on('connection', function (socket) {
   socket.emit('news', { status: 'connected' });
   socket.emit('updateBanner', banner1, banner2);
-  socket.emit('update', items, count );
+  // socket.emit('update', items, count );
 
-  // socket.on('requestUpdate', function() {
-  //   socket.emit('update', { items, count });
-  // });
+  socket.on('requestUpdate', function() {
+    socket.emit('update', { items, count });
+  });
 
 
   socket.on('receiveData', function (data) {
@@ -54,8 +54,10 @@ io.on('connection', function (socket) {
       socket.broadcast.emit('showBannerClient', num)
   })
 
+  socket.on('disconnect', function() {
+    socket.emit("resetAllItem");
+  })
 });
-
 
 server.listen(8888, function(){
   console.log('listening on *:8888');
