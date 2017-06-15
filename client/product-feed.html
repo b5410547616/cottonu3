@@ -28,7 +28,7 @@
     // console.log(data);
   });
 
-  socket.emit('requestUpdate');
+  // socket.emit('requestUpdate');
 
   socket.on('update', function (items, count) {
   	// console.log("update")
@@ -41,33 +41,51 @@
   	else if(banner2) showBanner(2);
   });
 
-  var bodyColor = true;
+  // var bodyColor = true;
+  var banner1 = false;
+  var banner2 = false;
   function showBanner(num) {
   	if(num === 1){
   		// $('#licensee1').toggleClass('active');
-  		$('#licensee1').toggleClass(function() {
-  			if(bodyColor) {
-  				$('body').css('background-color', 'white');
-  				bodyColor = false;
-  			} else {
-  				$('body').css('background-color', '#eee');
-  				bodyColor = true;
-  			}
-  			return 'active';
-  		});
+  		banner1 = !banner1;
+  		if(banner1) {
+  			$('#licensee1').addClass('active');
+  			$('body').css('background-color', 'white');
+  		} else {
+  			$('#licensee1').removeClass('active');
+  			$('body').css('background-color', '#eee');
+  		}
+  		// $('#licensee1').toggleClass(function() {
+  		// 	if(bodyColor) {
+  		// 		$('body').css('background-color', 'white');
+  		// 		bodyColor = false;
+  		// 	} else {
+  		// 		$('body').css('background-color', '#eee');
+  		// 		bodyColor = true;
+  		// 	}
+  		// 	return 'active';
+  		// });
 
   	} else if(num === 2) {
   		// $('#licensee2').toggleClass('active');
-  		$('#licensee2').toggleClass(function() {
-  			if(bodyColor) {
-  				$('body').css('background-color', 'white');
-  				bodyColor = false;
-  			} else {
-  				$('body').css('background-color', '#eee');
-  				bodyColor = true;
-  			}
-  			return 'active';
-  		});
+  		banner2 = !banner2;
+  		if(banner2) {
+  			$('#licensee2').addClass('active');
+  			$('body').css('background-color', 'white');
+  		} else {
+  			$('#licensee2').removeClass('active');
+  			$('body').css('background-color', '#eee');
+  		}
+  		// $('#licensee2').toggleClass(function() {
+  		// 	if(bodyColor) {
+  		// 		$('body').css('background-color', 'white');
+  		// 		bodyColor = false;
+  		// 	} else {
+  		// 		$('body').css('background-color', '#eee');
+  		// 		bodyColor = true;
+  		// 	}
+  		// 	return 'active';
+  		// });
   	}
   }
 

@@ -22,11 +22,11 @@ var banner2 = false;
 io.on('connection', function (socket) {
   socket.emit('news', { status: 'connected' });
   socket.emit('updateBanner', banner1, banner2);
-  // socket.emit('update', items, count );
+  socket.emit('update', items, count );
 
-  socket.on('requestUpdate', function() {
-    socket.emit('update', { items, count });
-  });
+  // socket.on('requestUpdate', function() {
+  //   socket.emit('update', { items, count });
+  // });
 
 
   socket.on('receiveData', function (data) {
