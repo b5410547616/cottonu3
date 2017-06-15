@@ -30,9 +30,12 @@
 
   socket.emit('requestUpdate');
 
-  socket.on('update', ({ items, count, banner1, banner2 }) => {
+  socket.on('update', ({ items, count }) => {
   	console.log("update")
   	updateCart(items, count);
+  });
+
+  socket.on('updateBanner', ({banner1, banner2}) => {
   	if(banner1) showBanner(1);
   	else if(banner2) showBanner(2);
   });

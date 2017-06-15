@@ -23,8 +23,10 @@ io.on('connection', function (socket) {
   socket.emit('news', { status: 'connected' });
 
   socket.on('requestUpdate', function() {
-    socket.emit('update', { items, count, banner1, banner2 });
+    socket.emit('update', { items, count });
   });
+
+  socket.emit('updateBanner', {banner1, banner2});
 
   socket.on('receiveData', function (data) {
   	console.log("receiveData", data);
