@@ -88,16 +88,10 @@
 		<div class="row">
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(13)">13) Lee Cooper</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(14)">14) Wrangler</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(15)">15) Picasso</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(16)">16) Santas</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(17)">17) Frolina</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(18)">18) Rii</button></div>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(19)">19) Quiescent</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(20)">20) Guy Laroche</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(21)">21) Jockey</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(15)">15) Picasso & Santas</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(16)">16) Frolina</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(17)">17) Rii & Quiescent</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(18)">18) Guy Laroche & Jockey</button></div>
 		</div>
 	</div>
 
@@ -247,18 +241,14 @@
 			});
 
 		} else if (no === 15) {
-			title = "Picasso";
+			title = "Picasso & Santas";
 			getProduct('5115316').done(() => {
-				d1.resolve();
+				getProduct('5102604').done(() => {
+					d1.resolve();
+				})
 			});
 
 		} else if (no === 16) {
-			title = "Santas";
-			getProduct('5102604').done(() => {
-				d1.resolve();
-			});
-
-		} else if (no === 17) {
 			title = "Frolina";
 			getProduct('5086664').done(() => {
 				getProduct('5086652').done(() => {
@@ -266,39 +256,33 @@
 				})
 			});	
 
-		} else if (no === 18) {
-			title = "Rii";
+		} else if (no === 17) {
+			title = "Rii & Quiescent";
 			getProduct('5115366').done(() => {
 				getProduct('5115363').done(() => {
-					d1.resolve();
-				})
-			});	
-
-		} else if (no === 19) {
-			title = "Quiescent";
-			getProduct('5076267').done(() => {
-				getProduct('5076224').done(() => {
-					getProduct('5017245').done(() => {
-						d1.resolve();
+					getProduct('5076267').done(() => {
+						getProduct('5076224').done(() => {
+							getProduct('5017245').done(() => {
+								d1.resolve();
+							})
+						})
 					})
-				})
-			});
 
-		} else if (no === 20) {
-			title = "Guy Laroche";
+				})
+			});		
+
+		} else if (no === 18) {
+			title = "Guy Laroche & Jockey";
 			getProduct('5086057').done(() => {
 				getProduct('5077975').done(() => {
-					d1.resolve();
+					getProduct('5104205').done(() => {
+						getProduct('5104192').done(() => {
+							d1.resolve();
+						})
+					})
 				})
 			});	
 
-		} else if (no === 21) {
-			title = "Jockey";
-			getProduct('5104205').done(() => {
-				getProduct('5104192').done(() => {
-					d1.resolve();
-				})
-			});	
 		}
 
 		
