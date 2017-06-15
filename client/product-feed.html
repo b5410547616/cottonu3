@@ -24,11 +24,13 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
   var socket = io();
+  socket.on("connect", function() {
+  	socket.emit('requestUpdate');
+  });
+
   socket.on('news', function (data) {
     // console.log(data);
   });
-
-  // socket.emit('requestUpdate');
 
   socket.on('update', function (items, count) {
   	// console.log("update")
