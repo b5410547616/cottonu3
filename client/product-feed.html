@@ -74,7 +74,7 @@
   	let data = "";
     for (var i = items.length - 1 ; i >= 0; i--) {
     	data = '<li>';
-		data += '<a href="http://www.11street.co.th/productdetail/'+items[i].Number+'" target="_blank">';
+		data += '<a href="http://www.11street.co.th/productdetail/'+items[i].Number+'" target="_blank" onclick="ga(\'send\', \'event\', \''+items[i].Name+'\', \'Click to Buy\', \''+items[i].Number+'\');">';
 		data += '<div class="detail-block product-pic">';
 		data += '<img src="'+items[i].img+'" alt="">';
 		data += '</div>';
