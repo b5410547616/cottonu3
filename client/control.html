@@ -70,16 +70,16 @@
 		<div class="row">
 			<div class="col-sm-2"><button id="btn1" class="btn btn-primary" onclick="showSet(1)">1) Enfant</button></div>
 			<div class="col-sm-2"><button id="btn2" class="btn btn-primary" onclick="showSet(2)">2) Little Wacoal</button></div>
-			<div class="col-sm-2"><!-- <button id="btn3" class="btn btn-primary" onclick="showSet(3)">3) Cadeau</button> --></div>
+			<div class="col-sm-2"><button id="btn3" class="btn btn-primary" onclick="showSet(3)">3) Cadeau</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(4)">4) Elle</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(5)">5) Blue Corner</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(6)">6) Manchester</button></div>
 		</div>
 
 		<div class="row">
-			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(7)">7) S'fare</button> --></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(7)">7) S'fare</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(8)">8) Khaki Bros</button></div>
-			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(9)">9) John Henry</button> --></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(9)">9) John Henry</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(10)">10) Surftex</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(11)">11) Portland</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(12)">12) Lee</button></div>
@@ -88,15 +88,16 @@
 		<div class="row">
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(13)">13) Lee Cooper</button></div>
 			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(14)">14) Wrangler</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(15)">15) Santas</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(16)">16) Frolina</button></div>
-			<div class="col-sm-2"><!-- <button class="btn btn-primary" onclick="showSet(17)">17) Rii</button> --></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(18)">18) Quiescent</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(15)">15) Picasso</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(16)">16) Santas</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(17)">17) Frolina</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(18)">18) Rii</button></div>
 		</div>
 
 		<div class="row">
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(19)">19) Guy Laroche</button></div>
-			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(20)">20) Jockey</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(19)">19) Quiescent</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(20)">20) Guy Laroche</button></div>
+			<div class="col-sm-2"><button class="btn btn-primary" onclick="showSet(21)">21) Jockey</button></div>
 		</div>
 	</div>
 
@@ -151,7 +152,11 @@
 
 		} else if (no === 3) {
 			title = "Cadeau";
-			d1.resolve();
+			getProduct('5103715').done(() => {
+				getProduct('5103841').done(() => {
+					d1.resolve();
+				})
+			});
 
 		} else if (no === 4) {
 			title = "Elle";
@@ -177,7 +182,11 @@
 
 		} else if (no === 7) {
 			title = "S'fare";
-			d1.resolve();
+			getProduct('5104716').done(() => {
+				getProduct('5104722').done(() => {
+					d1.resolve();
+				})
+			});	
 
 		} else if (no === 8) {
 			title = "Khaki Bros";
@@ -191,7 +200,9 @@
 
 		} else if (no === 9) {
 			title = "John Henry";
-			d1.resolve();
+			getProduct('5104469').done(() => {
+				d1.resolve();
+			});
 
 		} else if (no === 10) {
 			title = "Surftex";
@@ -236,12 +247,18 @@
 			});
 
 		} else if (no === 15) {
+			title = "Picasso";
+			getProduct('5115316').done(() => {
+				d1.resolve();
+			});
+
+		} else if (no === 16) {
 			title = "Santas";
 			getProduct('5102604').done(() => {
 				d1.resolve();
 			});
 
-		} else if (no === 16) {
+		} else if (no === 17) {
 			title = "Frolina";
 			getProduct('5086664').done(() => {
 				getProduct('5086652').done(() => {
@@ -249,11 +266,15 @@
 				})
 			});	
 
-		} else if (no === 17) {
-			title = "Rii";
-			d1.resolve();
-
 		} else if (no === 18) {
+			title = "Rii";
+			getProduct('5115366').done(() => {
+				getProduct('5115363').done(() => {
+					d1.resolve();
+				})
+			});	
+
+		} else if (no === 19) {
 			title = "Quiescent";
 			getProduct('5076267').done(() => {
 				getProduct('5076224').done(() => {
@@ -263,7 +284,7 @@
 				})
 			});
 
-		} else if (no === 19) {
+		} else if (no === 20) {
 			title = "Guy Laroche";
 			getProduct('5086057').done(() => {
 				getProduct('5077975').done(() => {
@@ -271,7 +292,7 @@
 				})
 			});	
 
-		} else if (no === 20) {
+		} else if (no === 21) {
 			title = "Jockey";
 			getProduct('5104205').done(() => {
 				getProduct('5104192').done(() => {
