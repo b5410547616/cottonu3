@@ -16,12 +16,14 @@ app.use(helmet());
 
 var items = [];
 var count = 0;
+var banner1 = false;
+var banner2 = false;
 
 io.on('connection', function (socket) {
   socket.emit('news', { status: 'connected' });
 
   socket.on('requestUpdate', function() {
-    socket.emit('update', { items, count });
+    socket.emit('update', { items, count, banner1, banner2 });
   });
 
   socket.on('receiveData', function (data) {
@@ -43,6 +45,9 @@ io.on('connection', function (socket) {
   });
 
   socket.on('showBanner', function (num) {
+      if(num === 1) banner1 = !banner1;
+      else if(num === 2) banner2 = !banner2;
+      console.log(banner1, banner2);
       socket.broadcast.emit('showBannerClient', num)
   })
 
