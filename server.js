@@ -52,12 +52,12 @@ io.on('connection', function (socket) {
       if(num === 1) banner1 = !banner1;
       else if(num === 2) banner2 = !banner2;
       console.log(banner1, banner2);
-      socket.broadcast.emit('showBannerClient', banner1, banner2);
+      socket.broadcast.emit('showBannerClient', banner1, banner2)
   })
 
-  socket.on('disconnect', function() {
-    socket.emit("resetAllItem");
-  })
+  // socket.on('disconnect', function() {
+  //   socket.emit("resetAllItem");
+  // })
 });
 
 server.listen(8888, function(){
