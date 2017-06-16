@@ -139,11 +139,11 @@
 
 		if(no === 1) {
 			title = "Enfant";
-			getProduct('5085597').done(() => {
+			// getProduct('5085597').done(() => {
 				getProduct('5085604').done(() => {
 					d1.resolve();
-				})
-			});	
+				});
+			// });	
 
 		} else if (no === 2) {
 			title = "Little Wacoal";
@@ -162,9 +162,9 @@
 		} else if (no === 4) {
 			title = "Elle";
 			getProduct('5075521').done(() => {
-				getProduct('5075529').done(() => {
+				// getProduct('5075529').done(() => {
 					d1.resolve();
-				})
+				// })
 			});
 
 		} else if (no === 5) {
